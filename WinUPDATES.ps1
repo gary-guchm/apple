@@ -107,8 +107,6 @@ try { Install-PSModule @('PSWindowsUpdate') }
 catch { Write-Log "PSWindowsUpdate not available: $($_.Exception.Message)" 'ERROR'; throw }
 
 # ---------------------------- 扫描与安装（忽略重启） ----------------------------
-
- Get-WUList -MicrosoftUpdate | Select Title, KB, Msrc 
 try {
     Write-Log "Starting Get-WindowsUpdate -MicrosoftUpdate -AcceptAll -Install -IgnoreReboot ..."
     Get-WindowsUpdate -MicrosoftUpdate -AcceptAll -Install -IgnoreReboot
@@ -165,3 +163,4 @@ catch {
 }
 
 Write-Log "OSD Windows Update“ 
+
